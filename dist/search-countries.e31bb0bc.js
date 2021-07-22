@@ -21688,6 +21688,11 @@ refs.input.addEventListener('input', (0, _lodash.debounce)(onSearch, 500));
 function onSearch(e) {
   e.preventDefault();
   var inputValue = e.target.value;
+
+  if (inputValue === '') {
+    return;
+  }
+
   (0, _fetchCountries.default)(inputValue).then(function (countries) {
     if (countries.length === 1) {
       renderCountryCard(countries);

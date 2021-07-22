@@ -24,24 +24,31 @@ function onSearch(e) {
    e.preventDefault();
 
    const inputValue = e.target.value;
-
+    if(inputValue === '') {
+        return
+    }
 
    fetchCountries(inputValue).then(countries => {
     if(countries.length === 1) {
         renderCountryCard(countries);
+        
     } else if(countries.length > 2 && countries.length <= 10) {
         renderCountryList(countries);
+
     } else if(countries.length > 10) {
         error({
             text: "Too many matches found. Please enter a more specific query!"
           });
+
     } else if(countries.status === 404) {
         error({
             text: "No matches found. Please enter a more specific query!"
           });
-    }
+    } 
 })
+
 };
+
 
 
 function renderCountryCard(countryInfo) {
