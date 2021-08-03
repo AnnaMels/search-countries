@@ -11,7 +11,6 @@ import countryCardTemplate from './templates/country-card.hbs';
 import countryListTemplate from './templates/country-card-list.hbs';
 
   
-
 const refs = {
    container: document.querySelector('.container'),
    input: document.querySelector('.search-input'),
